@@ -1,0 +1,1127 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage{caption}
+\usepackage{hyperref}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style apecon
+\biblio_options round
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 2 0 8 -1
+\bullet 3 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Replicating Brown and Sivakumar (2003)
+\end_layout
+
+\begin_layout Author
+Yongseok Kim
+\end_layout
+
+\begin_layout Standard
+In this note, I replicate 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "2003.Brown.Sivakumar"
+literal "false"
+
+\end_inset
+
+'s results.
+\end_layout
+
+\begin_layout Section
+Data
+\end_layout
+
+\begin_layout Itemize
+I/B/E/S
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Detail History Actuals, Unadjusted (ibes.actu_epsus):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+rounded to 2 digits
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Summary Statistics, Unadjusted (ibes.statsumu_epsus)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Compustat 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Fundamental Quarterly (comp.fundq)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+CRSP
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Daily Stock (crsp.dsf)
+\end_layout
+
+\begin_layout Itemize
+Stock Market Indexes (crsp.dsi)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Linking Tools:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+IBES CRSP Link (wrdsapps.ibcrsphist):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+score = 1
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Compusta CRSP Linking History (crsp.ccmxpf_lnkhist):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+linktype = LC or LU
+\end_layout
+
+\begin_layout Itemize
+linkprim = P
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Subsection
+Predictive ability
+\end_layout
+
+\begin_layout Itemize
+There is a typo.
+ In the note of Table 1, the authors write predictive error is measured
+ as
+\begin_inset Formula 
+\[
+Abs\{(STREET_{t}-STREET_{t-4})-(EPSOP_{t}-EPSOP_{t-4})\}/PRCCQ_{t-1}.
+\]
+
+\end_inset
+
+However, then, predictive errors are always non-negative, and 
+\begin_inset Formula $t$
+\end_inset
+
+-statistics for zero mean null hypothesis should be non-negative, which
+ is contradiction with negative values for Group 3.
+\end_layout
+
+\begin_layout Itemize
+Hence, in this note, I assume predictive error is measured as
+\begin_inset Formula 
+\[
+\Big[Abs\{(STREET_{t}-STREET_{t-4})\}-Abs\{(EPSOP_{t}-EPSOP_{t-4})\}\Big]/PRCCQ_{t-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Predictive errors are truncated at 2.5% and 97.5% when I compute 
+\begin_inset Formula $t$
+\end_inset
+
+-statistics.
+\end_layout
+
+\begin_layout Itemize
+See Table 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Predictive ability evidence
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+EPSOP and STREET Agree in Quarter 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab1a.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+EPSOP and STREET Disagree in Quarter 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab1b.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Valuation
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $BV_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $STREET_{t}$
+\end_inset
+
+, 
+\begin_inset Formula $EPSOP_{t}$
+\end_inset
+
+, and 
+\begin_inset Formula $NI_{t}$
+\end_inset
+
+ are truncated at 2.5% and 97.5%.
+\end_layout
+
+\begin_layout Itemize
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the results.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Valuation evidence
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 1: 
+\begin_inset Formula $EPSOP=GAAP\neq STREET$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab2a.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 2: 
+\begin_inset Formula $EPSOP\neq GAAP\neq STREET$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab2b.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 3: 
+\begin_inset Formula $STREET=GAAP\neq EPSOP$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab2c.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+All three groups combined
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab2d.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Information Content
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $UOPINC_{i,t}$
+\end_inset
+
+ is truncated at 2.5% and 97.5%.
+\end_layout
+
+\begin_layout Itemize
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the results.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Information content evidence (3-days)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 1: 
+\begin_inset Formula $EPSOP=GAAP\neq STREET$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab3a.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 2: 
+\begin_inset Formula $EPSOP\neq GAAP\neq STREET$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab3b.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 3: 
+\begin_inset Formula $STREET=GAAP\neq EPSOP$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab3c.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+All three groups combined
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab3d.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Information content evidence (63-days)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:4"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 1: 
+\begin_inset Formula $EPSOP=GAAP\neq STREET$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab4a.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 2: 
+\begin_inset Formula $EPSOP\neq GAAP\neq STREET$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab4b.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Group 3: 
+\begin_inset Formula $STREET=GAAP\neq EPSOP$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab4c.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+All three groups combined
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{../analysis/output/tabs/tab4d.tex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+Overall, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "2003.Brown.Sivakumar"
+literal "false"
+
+\end_inset
+
+'s results are quite well replicated.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "mybib"
+options "apecon"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
